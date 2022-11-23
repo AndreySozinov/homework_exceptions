@@ -6,15 +6,13 @@ public class Start {
         user.inputData();
 
         ParseData parse = new ParseData();
-        try {
-            parse.parseData(user.getUserData());
-        } catch (IllegalDataLengthException e) {
-            
-        }
-
-        FileRecord record = new FileRecord();
-        record.fileRecord();
+        if (parse.parseData(user.getUserData()) == 1) {
+            return "Введено неверное количество данных";
+        } else {
+            FileRecord record = new FileRecord();
+            record.fileRecord();
 
         return "Запись пользователя произведена корректно";
+        }
     }
 }

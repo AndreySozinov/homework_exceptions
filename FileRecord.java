@@ -20,7 +20,9 @@ public class FileRecord {
     private static String result;
 
     public void fileRecord() {
+        System.out.println(line);
         line.append("<" + ParseData.getLastName() + ">");
+        System.out.println(line);
         line.append("<" + ParseData.getFirstName() + ">");
         line.append("<" + ParseData.getPatronym() + ">");
         line.append("<" + ParseData.getBirthDate() + ">");

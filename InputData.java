@@ -22,7 +22,7 @@ public class InputData {
     }
 
     public String getUserData() {
-        return userData;
+        return this.userData;
     }
 
 }

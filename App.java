@@ -1,5 +1,7 @@
 package homework_exceptions;
 /*
+* https://github.com/AndreySozinov/homework_exceptions.git
+
  * Напишите приложение, которое будет запрашивать у пользователя следующие данные 
  * в произвольном порядке, разделенные пробелом:
 Фамилия Имя Отчество датарождения номертелефона пол
@@ -38,6 +40,6 @@ public class App {
 
     private static void pushTheButton() {
         Start start = new Start();
-        start.start();
+        System.out.println(start.start());
     }
 }

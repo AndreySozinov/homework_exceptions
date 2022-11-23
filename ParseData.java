@@ -23,9 +23,12 @@ public class ParseData {
     private static int phoneMumber;
     private static char gender;
 
-    public void parseData(String data) throws IllegalDataLengthException{
+    public int parseData(String data) {
+        int errorCode = 0;
         this.dataSet = data.split(" ");
-        if (dataSet.length != 6) throw new IllegalDataLengthException("Введено неверное количество данных");
+        if (dataSet.length != 6) {
+            errorCode = 1;
+        }
         else {
             try {
                 lastName = dataSet[0];
@@ -58,6 +61,7 @@ public class ParseData {
                 System.out.println("Неверный формат символа пола");
             }
         }
+        return errorCode;
     }
 
     public static String getLastName() {
