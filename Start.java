@@ -7,7 +7,10 @@ public class Start {
 
         ParseData parse = new ParseData();
         if (parse.parseData(user.getUserData()) == 1) {
-            return "Введено неверное количество данных";
+            return "Введено недостаточно данных";
+        }
+        if (parse.parseData(user.getUserData()) == 2) {
+            return "Введено избыточное количество данных";
         } else {
             FileRecord record = new FileRecord();
             record.fileRecord();

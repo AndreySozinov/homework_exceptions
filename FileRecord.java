@@ -3,7 +3,7 @@ package homework_exceptions;
  * должен создаться файл с названием, 
 равным фамилии, в него в одну строку должны записаться полученные данные, вида
 
-<Фамилия><Имя><Отчество><датарождения> <номертелефона><пол>
+<Фамилия><Имя><Отчество><датарождения><номертелефона><пол>
 
 Однофамильцы должны записаться в один и тот же файл, в отдельные строки.
 
@@ -12,32 +12,30 @@ package homework_exceptions;
 При возникновении проблемы с чтением-записью в файл, исключение должно быть 
 корректно обработано, пользователь должен увидеть стектрейс ошибки.
  */
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileRecord {
-    private static StringBuilder line;
-    private static String result;
 
     public void fileRecord() {
-        System.out.println(line);
-        line.append("<" + ParseData.getLastName() + ">");
-        System.out.println(line);
-        line.append("<" + ParseData.getFirstName() + ">");
-        line.append("<" + ParseData.getPatronym() + ">");
-        line.append("<" + ParseData.getBirthDate() + ">");
-        line.append("<" + ParseData.getPhoneMumber() + ">");
-        line.append("<" + ParseData.getGender() + ">");
+        StringBuilder line = new StringBuilder();
+        line.append("<").append(ParseData.getLastName()).append(">");
+        line.append("<").append(ParseData.getFirstName()).append(">");
+        line.append("<").append(ParseData.getPatronymic()).append(">");
+        line.append("<").append(ParseData.getBirthDate()).append(">");
+        line.append("<").append(ParseData.getPhoneNumber()).append(">");
+        line.append("<").append(ParseData.getGender()).append(">").append("\n");
 
-        result = line.toString();
+        String result = line.toString();
+        String filename = ParseData.getLastName() + ".txt";
 
-        try (FileWriter writer = new FileWriter(ParseData.getLastName())) {
-            writer.write(result);
-            writer.flush();
+        try (FileWriter writer = new FileWriter(filename, true)) {
+            BufferedWriter bf = new BufferedWriter(writer);
+            bf.write(result);
+            bf.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
-    
 }

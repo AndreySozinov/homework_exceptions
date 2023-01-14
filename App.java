@@ -34,8 +34,7 @@ package homework_exceptions;
 корректно обработано, пользователь должен увидеть стектрейс ошибки.
  */
 public class App {
-    public static void main(String[] args) {
-        pushTheButton();
+    public static void main(String[] args) { pushTheButton();
     }
 
     private static void pushTheButton() {
